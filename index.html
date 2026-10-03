@@ -1,16 +1,152 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cute Gura Page</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana;
+  color: #333333;
+  /* 網站整體背景圖片 */
+  background-image: url('cutesaba.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+/* 頂端標題（淺藍色背景、置中） */
+.header-banner {
+  background-color: #a1c4fd;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-banner h1 {
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 左側選單格子（改為淺藍色背景） */
+.menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.menu a {
+  background-color: #a1c4fd;
+  padding: 8px;
+  margin-top: 7px;
+  display: block;
+  width: 100%;
+  color: #000000;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #89b4f8;
+}
+
+/* 中間內文區塊 */
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  margin-top: 7px;
+}
+
+/* 右側 About 區塊（改為淺藍色背景） */
+.right {
+  background-color: #a1c4fd;
+  float: left;
+  width: 20%;
+  padding: 15px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+/* 底部頁尾（改為淺藍色背景） */
+.footer {
+  background-color: #a1c4fd;
+  text-align: center;
+  padding: 10px;
+  margin-top: 7px;
+  clear: both;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+</style>
+</head>
 <body>
-<img src="cutegura.jpg" alt="GURA" width="200" height="200">
+
+<div class="header-banner">
+  <h1>sameko saba</h1>
+</div>
+
+<!-- 圖片與長條圖區塊（置中） -->
+<div style="text-align: center; padding: 20px;">
+  <img src="cutegura.jpg" alt="GURA" width="200" height="200" style="border-radius: 10px; margin-bottom: 20px;">
+  <div style="display: flex; justify-content: center;">
+    <canvas id="myChart" style="width:100%;max-width:600px; background-color: rgba(255, 255, 255, 0.85); border-radius: 8px; padding: 10px;"></canvas>
+  </div>
+</div>
+
+<div style="overflow:auto; padding: 10px;">
+  <div class="menu">
+    <a href="https://giohrtgesb.github.io/net-homework/">Onion</a>
+    <a href="https://bm-architect.wixsite.com/bmportfilio">BM</a>
+    <a href="https://lck0408.github.io/web/index.html">LCK</a>
+    <a href="https://xieh1123.github.io/homework/">陳人弘</a>
+  </div>
+
+  <div class="main">
+    <h2>saba:</h2>
+    <p>鯊魚子Saba（英語：Sameko Saba，日語：さめこさば，羅馬化：Sameko Saba）[1]是位美國個人勢[註 1]英語虛擬YouTuber。2025年6月28日在YouTube進行首次直播，僅在出道2天後的7月1日達成100萬訂閱里程碑，成為史上最快達成百萬訂閱的VTuber。</p>
+  </div>
+
+  <div class="right">
+    <h2>About</h2>
+    <p>saba's fans</p>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="https://www.youtube.com/@SamekoSaba" target="_blank">https://www.youtube.com/@SamekoSaba</a>
+</div>
+
+<!-- Chart.js 引入與設定 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
-<body>
-
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
 <script>
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
+const xValues = ["gawr", "gura", "sameko", "saba", "cute"];
+const yValues = [100, 100, 100, 100, 100];
+const barColors = ["red", "green", "blue", "orange", "brown"];
 
 const ctx = document.getElementById('myChart');
 
@@ -24,88 +160,23 @@ new Chart(ctx, {
     }]
   },
   options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 100
+      }
+    },
     plugins: {
       legend: {display: false},
       title: {
         display: true,
-        text: "World Wine Production 2018",
-        font: {size: 16}
+        text: "可愛程度",
+        font: {size: 18}
       }
     }
   }
 });
 </script>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-.menu {
-  float: left;
-  width: 20%;
-  text-align: center;
-}
-
-.menu a {
-  background-color: #e5e5e5;
-  padding: 8px;
-  margin-top: 7px;
-  display: block;
-  width: 100%;
-  color: black;
-}
-
-.main {
-  float: left;
-  width: 60%;
-  padding: 0 20px;
-}
-
-.right {
-  background-color: #e5e5e5;
-  float: left;
-  width: 20%;
-  padding: 15px;
-  margin-top: 7px;
-  text-align: center;
-}
-
-@media only screen and (max-width: 620px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width: 100%;
-  }
-}
-</style>
-</head>
-<body style="font-family:Verdana;color:#aaaaaa;">
-
-<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-  <h1>Hello World</h1>
-</div>
-
-<div style="overflow:auto">
-  <div class="menu">
-    <a href="https://giohrtgesb.github.io/net-homework/">Onion</a>
-    <a href="#">BM</a>
-    <a href="#">Link 3</a>
-    <a href="#">Link 4</a>
-  </div>
-
-  <div class="main">
-    <h2>Lorum Ipsum</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-  </div>
-
-  <div class="right">
-    <h2>About</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-  </div>
-</div>
-
-<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">穢 copyright w3schools.com</div>
 
 </body>
 </html>
