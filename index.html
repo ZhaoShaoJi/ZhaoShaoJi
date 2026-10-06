@@ -12,7 +12,7 @@
 body {
   font-family: Verdana;
   color: #333333;
-  /* 網站整體背景圖片 */
+  /* 網站整體背景圖片（無遮擋版本） */
   background-image: url('supercutegura.jpg');
   background-size: cover;
   background-position: center;
@@ -96,10 +96,14 @@ body {
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 620px) {
-  /* For mobile phones: */
+@media only screen and (max-width: 900px) {
+  /* For mobile phones / smaller screens: */
   .menu, .main, .right {
     width: 100%;
+  }
+  .content-flex {
+    flex-direction: column !important;
+    align-items: center;
   }
 }
 </style>
@@ -110,16 +114,27 @@ body {
   <h1>sameko saba</h1>
 </div>
 
-<!-- 圖片與長條圖區塊（置中） -->
+<!-- 圖片與主要互動區塊（置中） -->
 <div style="text-align: center; padding: 20px;">
-  <!-- 上方圖片保持較大尺寸 -->
+  <!-- 上方圖片 -->
   <img src="cutegura.jpg" alt="GURA" width="350" height="350" style="border-radius: 10px; margin-bottom: 20px; object-fit: cover;">
   
-  <!-- 寬螢幕長條圖容器 -->
-  <div style="display: flex; justify-content: center;">
-    <div style="width: 90%; max-width: 900px; background-color: rgba(255, 255, 255, 0.85); border-radius: 8px; padding: 20px;">
+  <!-- 長條圖與影片並排區塊 -->
+  <div class="content-flex" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1300px; margin: 0 auto;">
+    
+    <!-- 長條圖容器 -->
+    <div style="flex: 1; min-width: 320px; max-width: 600px; background-color: rgba(255, 255, 255, 0.85); border-radius: 8px; padding: 20px;">
       <canvas id="myChart"></canvas>
     </div>
+
+    <!-- YouTube 影片區塊 -->
+    <div style="flex: 1; min-width: 320px; max-width: 600px; background-color: rgba(255, 255, 255, 0.85); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <h3 style="margin-top: 0; margin-bottom: 15px; color: #333;">【VTUBER DEBUT】yoho! 🐟 i'm saba!</h3>
+      <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+        <iframe src="https://www.youtube.com/embed/pYVEIX7nSEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 6px;"></iframe>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -166,7 +181,6 @@ new Chart(ctx, {
   },
   options: {
     responsive: true,
-    // 提高解析度（解決模糊問題關鍵）
     devicePixelRatio: window.devicePixelRatio > 1 ? window.devicePixelRatio * 2 : 2,
     scales: {
       y: {
